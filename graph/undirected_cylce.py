@@ -42,5 +42,5 @@ def is_cycle(pairs):
     return ans, cycle
 
 if __name__=='__main__':
-    pairs = [('A', 'B'), ('B', 'C'), ('C', 'A'),('D', 'E')]
+    pairs = [('A', 'B'), ('B', 'C'), ('C', 'D'),('D', 'B')]
     print(is_cycle(pairs))
