@@ -20,7 +20,7 @@ def is_cycle(pairs):
                 return
             if neighbour in visited and parent[vertex] != neighbour:    
                 ans = True
-                while vertex and vertex != neighbour:
+                while vertex != neighbour:
                     cycle.append(vertex)
                     vertex = parent[vertex]
                 cycle.append(neighbour)
@@ -42,5 +42,5 @@ def is_cycle(pairs):
     return ans, cycle
 
 if __name__=='__main__':
-    pairs = [('A', 'B'), ('B', 'C'), ('C', 'D'),('D', 'B')]
+    pairs = [('A', 'B'), ('B', 'C'), ('C', 'A'),('D', 'B')]
     print(is_cycle(pairs))
