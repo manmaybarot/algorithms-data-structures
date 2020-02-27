@@ -7,34 +7,26 @@ def is_cycle(pairs):
         graph[d].append(s)
 
     visited = set()
-    parent = {}
     ans = False
 
-    def dfs(vertex):
-        nonlocal ans, visited, graph, parent
+    def dfs(vertex, parent):
+        nonlocal ans, visited, graph
         if ans:
             return
         for neighbour in graph[vertex]:
-            # if we see parent of vertex,
-            # we should'nt go that way
-            if neighbour == parent[vertex]:
-                continue
-            if neighbour in visited and parent[neighbour] != vertex:    
+            if neighbour in visited and parent != neighbour:    
                 ans = True
                 break
             elif neighbour not in visited:
                 visited.add(neighbour)
-                parent[neighbour] = vertex
-                dfs(neighbour)
+                dfs(neighbour, vertex)
 
     for vertex in graph.keys():
         if ans:
             return ans
         if vertex not in visited:
-            if not parent:
-                parent[vertex] = 'start_'
             visited.add(vertex)
-            dfs(vertex)
+            dfs(vertex, 'None')
 
     return ans
 
