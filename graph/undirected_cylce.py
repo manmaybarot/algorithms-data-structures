@@ -1,6 +1,6 @@
 import collections
 
-def is_cycle(pairs):
+def detect_cycle(pairs):
     graph = collections.defaultdict(list)
     for s, d in pairs:
         graph[s].append(d)
@@ -8,18 +8,18 @@ def is_cycle(pairs):
 
     visited = set()
     parent = {}
-    ans = False
+    is_cycle = False
     cycle = []
 
     def dfs(vertex):
-        nonlocal ans, visited, graph, parent, cycle
-        if ans:
+        nonlocal is_cycle, visited, graph, parent, cycle
+        if is_cycle:
             return
         for neighbour in graph[vertex]:
-            if ans:
+            if is_cycle:
                 return
             if neighbour in visited and parent[vertex] != neighbour:    
-                ans = True
+                is_cycle = True
                 while vertex != neighbour:
                     cycle.append(vertex)
                     vertex = parent[vertex]
@@ -31,16 +31,16 @@ def is_cycle(pairs):
                 dfs(neighbour)
 
     for vertex in graph.keys():
-        if ans:
-            return ans, cycle
+        if is_cycle:
+            return is_cycle, cycle
         elif vertex not in visited:
             if vertex not in parent:
                 parent[vertex] = None
             visited.add(vertex)
             dfs(vertex)
 
-    return ans, cycle
+    return is_cycle, cycle
 
 if __name__=='__main__':
     pairs = [('A', 'B'), ('B', 'C'), ('C', 'A'),('D', 'B')]
-    print(is_cycle(pairs))
+    print(detect_cycle(pairs))
