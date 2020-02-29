@@ -1,4 +1,4 @@
-# KosaRaju's ALgorithm
+# KosaRaju's Algorithm
 
 def get_connected_components(pairs):
     graph = {}
