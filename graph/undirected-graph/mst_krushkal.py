@@ -44,7 +44,6 @@ def krushkal_mst(G,E):
             G_prime.append(item)
 
     mst = []
-    print(G_prime)
     for u,v in G_prime:
         u_parent = find(mapping[u])
         v_parent = find(mapping[v])
