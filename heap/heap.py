@@ -7,6 +7,7 @@ class Heap():
             self.heapify(A,i)
 
     def heapify(self, A, i, sort_offset=None):
+        # sort_offset for heapsort inplace
         left = (2 * i) + 1
         right = left + 1
         offset = sort_offset or len(A)
@@ -85,3 +86,7 @@ if __name__ == '__main__':
     for i in range(len(l1)):
         ans.append(heap.heappop(l1))
     print(ans)
+
+# push: O(log n)
+# pop: O(log n)
+# peek: O(1)

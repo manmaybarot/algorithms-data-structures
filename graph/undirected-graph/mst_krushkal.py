@@ -69,3 +69,5 @@ if __name__=='__main__':
     # E = [7, 1, 5]
 
     print(krushkal_mst(G, E))
+
+# O(nlog *m)

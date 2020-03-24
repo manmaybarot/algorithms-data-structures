@@ -103,3 +103,5 @@ if __name__=='__main__':
     E = [7, 1, 5, 4, 2, 6, 9, 3, 8]
 
     print(get_mst(G, E))
+
+# O((V+E)log V)

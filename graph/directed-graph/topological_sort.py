@@ -31,3 +31,5 @@ def topological_sort(prerequisites):
 if __name__=='__main__':
     prerequisites = [(1, 2), (1, 3), (2, 3),(2, 4), (4, 3), (4, 5), (3, 5)]
     print(topological_sort(prerequisites))
+
+# O(V+E)
