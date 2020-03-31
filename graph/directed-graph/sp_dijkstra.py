@@ -1,5 +1,7 @@
-# Shortest Path Algorithm: Bellman Ford
+# # Shortest Path Algorithm: Dijkstra
 
+import collections
+import heapq
 
 def get_sssp(G, E, source):
     d = {}
@@ -10,22 +12,33 @@ def get_sssp(G, E, source):
             d[u] = float('inf')
         if v not in d:
             d[v] = float('inf')
+
     d[source] = 0
     parent = {}
     parent[source] = 'source'
+    relaxed_vertices = set(source)
+
+    neighbours = collections.defaultdict(list)
+    for u, v in G:
+        neighbours[u].append(v)
 
     def relaxation(u, v, w):
         if d[v] > d[u] + w:
             d[v] = d[u] + w
             parent[v] = u
 
-    for i in range(len(d)-2):
-        for u, v in G:
-            relaxation(u, v, weight[(u, v)])
+    q = [(0, source)]
+    heapq.heapify(q)
 
-    for u, v in G:
-        if d[v] > d[u] + weight[(u, v)]:
-            return False
+    while q:
+        w, v = heapq.heappop(q)
+
+        for nei in neighbours[v]:
+            if nei not in relaxed_vertices:
+                relaxation(v, nei, weight[(v, nei)])
+                heapq.heappush(q, (weight[(v, nei)], nei))
+
+        relaxed_vertices.add(v)
 
     parent.pop(source)
 
@@ -38,5 +51,3 @@ if __name__=='__main__':
     E = [1, 2, 1, 2, 3]
 
     print(get_sssp(G, E, source='A'))
-
-# O(VE)
