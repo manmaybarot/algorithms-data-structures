@@ -12,7 +12,6 @@ def get_sssp(G, E, source):
             d[v] = float('inf')
     d[source] = 0
     parent = {}
-    parent[source] = 'source'
 
     def relaxation(u, v, w):
         if d[v] > d[u] + w:
@@ -26,8 +25,6 @@ def get_sssp(G, E, source):
     for u, v in G:
         if d[v] > d[u] + weight[(u, v)]:
             return False
-
-    parent.pop(source)
 
     return parent
 

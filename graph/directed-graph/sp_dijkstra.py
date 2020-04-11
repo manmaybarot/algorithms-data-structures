@@ -15,7 +15,6 @@ def get_sssp(G, E, source):
 
     d[source] = 0
     parent = {}
-    parent[source] = 'source'
     relaxed_vertices = set(source)
 
     neighbours = collections.defaultdict(list)
@@ -39,8 +38,6 @@ def get_sssp(G, E, source):
                 heapq.heappush(q, (weight[(v, nei)], nei))
 
         relaxed_vertices.add(v)
-
-    parent.pop(source)
 
     return parent
 
