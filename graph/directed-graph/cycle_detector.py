@@ -41,7 +41,7 @@ def detect_cycle(pairs):
                 for active in alarm:
                     if alarm[active]:
                         cycle.append(active)
-                break
+                return
         alarm[vertex] = False
 
     for v in graph:
