@@ -1,5 +1,5 @@
 
-class Node:
+class TreeNode:
     def __init__(self, val):
         self.val = val
         self.left = None
@@ -22,3 +22,11 @@ def preorder(node):
     preorder(node.left)
     preorder(node.right)
 
+
+# a b +
+def postorder(node):
+    if not node: return
+
+    postorder(node.left)
+    postorder(node.right)
+    print(node.val)
