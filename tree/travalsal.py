@@ -6,6 +6,7 @@ class Node:
         self.right = None
 
 
+# a + b
 def inorder(node):
     if not node: return
 
@@ -13,4 +14,11 @@ def inorder(node):
     print(node.val) # visiting node
     inorder(node.right)
 
+# + a b
+def preorder(node):
+    if not node: return
+
+    print(node.val) # visiting node
+    preorder(node.left)
+    preorder(node.right)
 
