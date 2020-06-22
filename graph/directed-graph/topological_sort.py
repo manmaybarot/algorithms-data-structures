@@ -1,5 +1,5 @@
 # Topological Sort
-
+from collections import deque
 
 def topological_sort(prerequisites):
     graph = {}
@@ -11,7 +11,7 @@ def topological_sort(prerequisites):
         if pre not in graph:
             graph[pre] = []
 
-    topology = []
+    topology = deque([])
     visited = set()
 
     def dfs(vertex):
@@ -19,7 +19,7 @@ def topological_sort(prerequisites):
             if nei not in visited:
                 visited.add(nei)
                 dfs(nei)
-        topology.insert(0, vertex)
+        topology.appendleft(vertex)
 
     for vertex in graph:
         if vertex not in visited:
