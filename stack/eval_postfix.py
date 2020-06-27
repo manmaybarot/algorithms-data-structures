@@ -27,4 +27,4 @@ if __name__ == '__main__':
     postfix = '523+5-42-3530+^*12/-'
     print(eval_postfix(postfix))
 
-# For prefix eval, got right to left :)
+# For prefix eval, go right to left :)
