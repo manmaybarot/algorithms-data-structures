@@ -13,7 +13,7 @@ def convert_infix_to_postfix(infix):
     def current_lte_top(curr, top):
         return top in precedence and precedence[curr] <= precedence[top]
 
-    precedence = {'+':1, '-':1, '*':2, '/':2, '^':3} 
+    precedence = {'+':1, '-':1, '*':2, '/':2, '^':3}
     postfix = ''
     stack = []
     for i in infix.replace(' ', ''):
