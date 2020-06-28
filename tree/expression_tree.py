@@ -19,4 +19,4 @@ def construct_expression_tree(postfix):
 if __name__ == '__main__':
     postfix = 'KL+MN*-OP^W*U/V/T*+Q+'
     root = construct_expression_tree(postfix)
-    postorder(root)
+    print(postorder(root))
