@@ -2,7 +2,7 @@
 # 1.) Inorder and Preorder
 # 2.) Inorder and Postorder
 
-from .travalsal import TreeNode
+from travalsal import TreeNode
 
 def build_bt_from_inorder_preorder(inorder, preorder):
     mapping = {}
