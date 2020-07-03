@@ -30,3 +30,18 @@ def postorder(node):
     postorder(node.left)
     postorder(node.right)
     print(node.val)
+
+
+class WithoutRecursion:
+    def inorderTraversal(self, root: TreeNode) -> List[int]:
+        stack = collections.deque([])
+        ans = []
+        current = root
+        while stack or current:
+            while current:
+                stack.append(current)
+                current = current.left
+            current = stack.pop()
+            ans.append(current.val)
+            current = current.right
+        return ans
