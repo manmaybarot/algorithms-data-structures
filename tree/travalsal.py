@@ -32,7 +32,7 @@ def postorder(node):
     print(node.val)
 
 
-class WithoutRecursion:
+class IterativeTravalsal:
     def inorderTraversal(self, root: TreeNode) -> List[int]:
         stack = collections.deque([])
         ans = []
