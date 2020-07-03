@@ -32,7 +32,7 @@ def postorder(node):
     print(node.val)
 
 
-class IterativeTravalsal:
+class IterativeTravalsalWithStack:
     def inorderTraversal(self, root: TreeNode) -> List[int]:
         stack = collections.deque([])
         ans = []
@@ -57,3 +57,16 @@ class IterativeTravalsal:
                 stack.append(curr.left)
 
         return ans
+
+    def postorderTraversal(self, root: TreeNode) -> List[int]:
+        stack = [root]
+        ans = []
+        while stack:
+            root = stack.pop()
+            if root:
+                stack.append(root.left)
+                stack.append(root.right)
+                ans.append(root.val)
+        return ans[::-1]
+
+
