@@ -1,3 +1,4 @@
+from typing import List
 
 class TreeNode:
     def __init__(self, val):
@@ -70,3 +71,5 @@ class IterativeTravalsalWithStack:
         return ans[::-1]
 
 
+class MorrisTravalsal:
+    pass
