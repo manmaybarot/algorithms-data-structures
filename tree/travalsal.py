@@ -45,3 +45,15 @@ class WithoutRecursion:
             ans.append(current.val)
             current = current.right
         return ans
+
+    def preorderTraversal(self, root: TreeNode) -> List[int]:
+        stack = [root]
+        ans = []
+        while stack:
+            curr = stack.pop()
+            if curr:
+                ans.append(curr.val)
+                stack.append(curr.right)
+                stack.append(curr.left)
+
+        return ans
