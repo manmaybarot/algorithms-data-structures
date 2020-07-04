@@ -103,5 +103,22 @@ class MorrisTravalsal:
                     predecesor = predecesor.right
                 predecesor.right = current.right
                 current.left = None
-                current = next_current.right
+                current = next_current
         return ans
+
+    def postorder(self, root: TreeNode) -> List[int]:
+        current = root
+        ans = []
+        while current:
+            ans.append(current.val)
+            if not current.right:
+                current = current.left
+            else:
+                predecesor = current.right
+                next_current = current.right
+                while predecesor.left:
+                    predecesor = predecesor.left
+                predecesor.left = current.left
+                current.right = None
+                current = next_current
+        return ans[::-1]
