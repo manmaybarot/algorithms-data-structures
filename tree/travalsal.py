@@ -23,7 +23,6 @@ class RecursionTravalsal:
         preorder(node.left)
         preorder(node.right)
 
-
     # a b +
     def postorder(self, node):
         if not node: return
