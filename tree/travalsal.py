@@ -72,4 +72,36 @@ class IterativeTravalsalWithStack:
 
 
 class MorrisTravalsal:
-    pass
+    def inorder(self, root: TreeNode) -> List[int]:
+        current = root
+        ans = []
+        while current:
+            if not current.left:
+                ans.append(current.val)
+                current = current.right
+            else:
+                predecesor = current.left
+                next_current = current.left
+                while predecesor.right:
+                    predecesor = predecesor.right
+                predecesor.right = current
+                current.left = None
+                current = next_current
+        return ans
+
+    def preorder(self, root: TreeNode) -> List[int]:
+        current = root
+        ans = []
+        while current:
+            ans.append(current.val)
+            if not current.left:
+                current = current.right
+            else:
+                predecesor = current.left
+                next_current = current.left
+                while predecesor.right:
+                    predecesor = predecesor.right
+                predecesor.right = current.right
+                current.left = None
+                current = next_current.right
+        return ans
