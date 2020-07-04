@@ -6,35 +6,35 @@ class TreeNode:
         self.left = None
         self.right = None
 
+class RecursionTravalsal:
+    # a + b
+    def inorder(self, node):
+        if not node: return
 
-# a + b
-def inorder(node):
-    if not node: return
+        inorder(node.left)
+        print(node.val) # visiting node
+        inorder(node.right)
 
-    inorder(node.left)
-    print(node.val) # visiting node
-    inorder(node.right)
+    # + a b
+    def preorder(self, node):
+        if not node: return
 
-# + a b
-def preorder(node):
-    if not node: return
-
-    print(node.val) # visiting node
-    preorder(node.left)
-    preorder(node.right)
-
-
-# a b +
-def postorder(node):
-    if not node: return
-
-    postorder(node.left)
-    postorder(node.right)
-    print(node.val)
+        print(node.val) # visiting node
+        preorder(node.left)
+        preorder(node.right)
 
 
-class IterativeTravalsalWithStack:
-    def inorderTraversal(self, root: TreeNode) -> List[int]:
+    # a b +
+    def postorder(self, node):
+        if not node: return
+
+        postorder(node.left)
+        postorder(node.right)
+        print(node.val)
+
+
+class IterativeWithStack:
+    def inorder(self, root: TreeNode) -> List[int]:
         stack = collections.deque([])
         ans = []
         current = root
@@ -47,7 +47,7 @@ class IterativeTravalsalWithStack:
             current = current.right
         return ans
 
-    def preorderTraversal(self, root: TreeNode) -> List[int]:
+    def preorder(self, root: TreeNode) -> List[int]:
         stack = [root]
         ans = []
         while stack:
@@ -59,7 +59,7 @@ class IterativeTravalsalWithStack:
 
         return ans
 
-    def postorderTraversal(self, root: TreeNode) -> List[int]:
+    def postorder(self, root: TreeNode) -> List[int]:
         stack = [root]
         ans = []
         while stack:
