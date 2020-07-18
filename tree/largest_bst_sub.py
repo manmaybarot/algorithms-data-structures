@@ -11,14 +11,23 @@ def largestBSTSubtree(self, root: TreeNode) -> int:
                 return True, 1, node.val, node.val
             else:
                 if node.left:
-                    left_bst, left_count, left_min, left_max = postorder(node.left)
+                    left_bst, left_count, left_min, left_max = postorder(
+                        node.left
+                    )
                 if node.right:
-                    right_bst, right_count, right_min, right_max = postorder(node.right)
+                    right_bst, right_count, right_min, right_max = postorder(
+                        node.right
+                    )
 
                 if node.left and node.right:
                     if left_bst and right_bst:
                         if left_max < node.val < right_min:
-                            return True, left_count+right_count+1, left_min, right_max
+                            return (
+                                True,
+                                left_count+right_count+1,
+                                left_min,
+                                right_max
+                            )
                     return False, max(left_count, right_count), 0, 0
                 elif node.right:
                     if right_bst:
