@@ -35,7 +35,7 @@ class SegmentTree:
             )
 
     def update(self, i, val):
-        self.update_segment_tree(0, len(self.segment_tree)-1, i, val-self.arr[i])
+        self.update_segment_tree(0, len(self.segment_tree)-1, 0, val-self.arr[i])
 
     def update_segment_tree(self, seg_start, seg_end, i, diff):
         if seg_start <= i <= seg_end:
@@ -48,6 +48,6 @@ class SegmentTree:
 if __name__=='__main__':
     st = SegmentTree([10, 20, 30, 40])
 
-    print(st.get_range_sum(0, 2))
-    st.update(1,500)
-    print(st.get_range_sum(0, 2))
+    print(st.get_range_sum(0, 3))
+    st.update(3,500)
+    print(st.get_range_sum(0, 3))
