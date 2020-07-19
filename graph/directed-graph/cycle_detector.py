@@ -15,12 +15,12 @@ def detect_cycle(pairs):
             graph[s].append(d)
         if d not in graph:
             graph[d] = []
-    
+
     for s in graph.keys():
         alarm[s] = False
 
     def dfs(vertex):
-        # declaring nonlocal as 
+        # declaring nonlocal as
         # this code may change the value of
         # is_cycle var if cycle exists
         nonlocal is_cycle
@@ -53,8 +53,9 @@ def detect_cycle(pairs):
 
     return is_cycle, cycle
 
-if __name__=='__main__':
-    pairs = [('A', 'B'), ('C', 'B'), ('C', 'A'),('D', 'B')]
+
+if __name__ == '__main__':
+    pairs = [('A', 'B'), ('C', 'B'), ('C', 'A'), ('D', 'B')]
     print(detect_cycle(pairs))
-    pairs = [('A', 'B'), ('B', 'C'), ('C', 'A'),('D', 'B')]
+    pairs = [('A', 'B'), ('B', 'C'), ('C', 'A'), ('D', 'B')]
     print(detect_cycle(pairs))

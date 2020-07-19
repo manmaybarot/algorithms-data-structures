@@ -1,31 +1,36 @@
 from typing import List
 
+
 class TreeNode:
     def __init__(self, val):
         self.val = val
         self.left = None
         self.right = None
 
+
 class RecursionTravalsal:
     # a + b
     def inorder(self, node):
-        if not node: return
+        if not node:
+            return
 
         inorder(node.left)
-        print(node.val) # visiting node
+        print(node.val)  # visiting node
         inorder(node.right)
 
     # + a b
     def preorder(self, node):
-        if not node: return
+        if not node:
+            return
 
-        print(node.val) # visiting node
+        print(node.val)  # visiting node
         preorder(node.left)
         preorder(node.right)
 
     # a b +
     def postorder(self, node):
-        if not node: return
+        if not node:
+            return
 
         postorder(node.left)
         postorder(node.right)

@@ -50,6 +50,7 @@ def get_connected_components(pairs):
 
     return ans
 
-if __name__=='__main__':
+
+if __name__ == '__main__':
     pairs = [(1, 2), (2, 3), (3, 1), (4, 5), (5, 6), (4, 6)]
     print(get_connected_components(pairs))

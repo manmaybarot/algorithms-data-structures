@@ -13,7 +13,7 @@ def convert_infix_to_prefix(infix):
     def current_lte_top(curr, top):
         return top in precedence and precedence[curr] <= precedence[top]
 
-    precedence = {'+':1, '-':1, '*':2, '/':2, '^':3} 
+    precedence = {'+': 1, '-': 1, '*': 2, '/': 2, '^': 3}
     prefix = ''
     stack = []
     for i in infix[::-1].replace(' ', ''):

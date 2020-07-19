@@ -2,6 +2,7 @@
 
 import collections
 
+
 def get_connected_components(pairs):
     graph = collections.defaultdict(list)
     for s, d in pairs:
@@ -31,6 +32,7 @@ def get_connected_components(pairs):
 
     return ans
 
-if __name__=='__main__':
-    pairs = [('A', 'B'), ('B', 'C'), ('D', 'F'),('D', 'E'), ('E', 'Z')]
+
+if __name__ == '__main__':
+    pairs = [('A', 'B'), ('B', 'C'), ('D', 'F'), ('D', 'E'), ('E', 'Z')]
     print(get_connected_components(pairs))

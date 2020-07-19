@@ -6,23 +6,22 @@ class Heap():
 
     def heap_push(self, A, x):
         A.append(x)
-        self.heap_map[x] = len(A)-1
-        parent_pos = (self.heap_map[x]-1)//2
+        self.heap_map[x] = len(A) - 1
+        parent_pos = (self.heap_map[x] - 1) // 2
         while len(A) > parent_pos >= 0:
             if A[parent_pos] > x:
                 self.swap(A, x, A[parent_pos])
-                parent_pos = (self.heap_map[x]-1)//2
+                parent_pos = (self.heap_map[x] - 1) // 2
             else:
                 break
 
-
     def swap(self, A, x, y):
         self.heap_map[y], self.heap_map[x] = self.heap_map[x], self.heap_map[y]
-        A[self.heap_map[x]], A[self.heap_map[y]] = A[self.heap_map[y]], A[self.heap_map[x]]
-
+        A[self.heap_map[x]], A[self.heap_map[y]
+                               ] = A[self.heap_map[y]], A[self.heap_map[x]]
 
     def heapify(self, A, i):
-        left = (2*i) + 1
+        left = (2 * i) + 1
         right = left + 1
 
         if left >= len(A) and right >= len(A):
@@ -32,7 +31,7 @@ class Heap():
                 self.swap(A, A[left], A[i])
                 self.heapify(A, left)
         else:
-            if A[i] > A[left]>=A[right]:
+            if A[i] > A[left] >= A[right]:
                 self.swap(A, A[right], A[i])
                 self.heapify(A, right)
             elif A[i] > A[right] >= A[left]:
@@ -54,6 +53,7 @@ class Heap():
             self.heapify(A, i)
             return min_element
 
+
 def get_mst(G, E):
     heap = Heap()
     A = []
@@ -62,7 +62,7 @@ def get_mst(G, E):
         edge_to_weight[g] = e
 
     neighbours = {}
-    for u,v in G:
+    for u, v in G:
         if u not in neighbours:
             neighbours[u] = [v]
         else:
@@ -96,10 +96,10 @@ def get_mst(G, E):
     return ans
 
 
-if __name__=='__main__':
+if __name__ == '__main__':
     G = [
         (1, 3), (1, 2), (2, 4), (7, 8), (3, 4), (2, 5), (5, 7), (5, 6), (6, 8)
-    ] 
+    ]
     E = [7, 1, 5, 4, 2, 6, 9, 3, 8]
 
     print(get_mst(G, E))

@@ -1,9 +1,10 @@
 from travalsal import TreeNode, MorrisTravalsal
 
+
 def construct_expression_tree(postfix):
     stack = []
     for i in postfix:
-        if i in {'+','*','-','/','^'}:
+        if i in {'+', '*', '-', '/', '^'}:
             right = stack.pop()
             left = stack.pop()
             new_node = TreeNode(i)

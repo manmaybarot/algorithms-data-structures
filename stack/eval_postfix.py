@@ -8,15 +8,15 @@ def eval_postfix(postfix):
             first = float(oprand_stack.pop())
             second = float(oprand_stack.pop())
             if i == '+':
-                oprand_stack.append(first+second)
+                oprand_stack.append(first + second)
             elif i == '-':
-                oprand_stack.append(first-second)
+                oprand_stack.append(first - second)
             elif i == '/':
-                oprand_stack.append(first/second)
+                oprand_stack.append(first / second)
             elif i == '^':
                 oprand_stack.append(first**second)
             elif i == '*':
-                oprand_stack.append(first*second)
+                oprand_stack.append(first * second)
         else:
             oprand_stack.append(i)
 

@@ -20,7 +20,7 @@ class TrieNode:
                 current = current.children[w]
             else:
                 return False
-        return current.ends == True
+        return current.ends
 
     def howmanywords(self, word):
         current = self
@@ -28,13 +28,13 @@ class TrieNode:
         for w in word:
             current = current.children[w]
             if current.ends:
-                counter+=1
+                counter += 1
         return counter
 
 
 t = TrieNode()
 
-words = ["w","wo","wor","worl", "world"]
+words = ["w", "wo", "wor", "worl", "world"]
 for word in words:
     t.insert(word)
 

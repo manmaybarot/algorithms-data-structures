@@ -6,11 +6,11 @@ class LinkedList:
 
     def print_me(self):
         tmp = self.head
-        ans = str(tmp.val)+'->'
+        ans = str(tmp.val) + '->'
         while tmp.next:
             tmp = tmp.next
-            ans+=str(tmp.val)+'->'
-        ans+='None'
+            ans += str(tmp.val) + '->'
+        ans += 'None'
         return ans
 
     def delete_node_with_val(self, x):
@@ -33,12 +33,12 @@ class LinkedList:
         previous_node = None
         current_node = self.head
         next_node = None
-        while current_node!=None:
+        while current_node is not None:
             next_node = current_node.next
             current_node.next = previous_node
             previous_node = current_node
             current_node = next_node
-        
+
         self.head = previous_node
 
     def is_palindrom(self, head, node):
@@ -56,7 +56,8 @@ class LinkedList:
             self.isPalindrom = False
             return self.isPalindrom
 
-if __name__=='__main__': 
+
+if __name__ == '__main__':
 
     my_linkedlist = LinkedList()
 

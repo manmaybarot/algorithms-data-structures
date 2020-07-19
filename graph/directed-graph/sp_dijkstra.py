@@ -3,6 +3,7 @@
 import collections
 import heapq
 
+
 def get_sssp(G, E, source):
     d = {}
     weight = {}
@@ -41,10 +42,11 @@ def get_sssp(G, E, source):
 
     return parent
 
-if __name__=='__main__':
+
+if __name__ == '__main__':
     G = [
         ('A', 'D'), ('A', 'C'), ('D', 'C'), ('C', 'B'), ('B', 'A')
-    ] 
+    ]
     E = [1, 2, 1, 2, 3]
 
     print(get_sssp(G, E, source='A'))

@@ -1,6 +1,7 @@
 # Topological Sort
 from collections import deque
 
+
 def topological_sort(prerequisites):
     graph = {}
     for course, pre in prerequisites:
@@ -28,8 +29,9 @@ def topological_sort(prerequisites):
 
     return topology
 
-if __name__=='__main__':
-    prerequisites = [(1, 2), (1, 3), (2, 3),(2, 4), (4, 3), (4, 5), (3, 5)]
+
+if __name__ == '__main__':
+    prerequisites = [(1, 2), (1, 3), (2, 3), (2, 4), (4, 3), (4, 5), (3, 5)]
     print(topological_sort(prerequisites))
 
 # O(V+E)
