@@ -25,7 +25,7 @@ class SegmentTree:
     def range_sum(self, q_start, q_end, seg_start, seg_end, seg_i):
         if seg_end < q_start or seg_start > q_end:
             return 0
-        elif q_start <= seg_start and q_end >= seg_end:
+        elif seg_start >= q_start and seg_end <= q_end:
             return self.segment_tree[seg_i]
         else:
             mid = (seg_start + seg_end)//2
