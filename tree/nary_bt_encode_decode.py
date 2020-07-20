@@ -2,10 +2,12 @@
 
 from traversal import TreeNode, Node
 
+
 class Codec:
     # Encodes an n-ary tree to a binary tree.
     def encode(self, root: 'Node') -> TreeNode:
-        if not root: return
+        if not root:
+            return
         bt_root = TreeNode(root.val)
         q = collections.deque([(root, bt_root)])
 
@@ -25,9 +27,10 @@ class Codec:
 
         return bt_root
 
-	# Decodes your binary tree to an n-ary tree.
+        # Decodes your binary tree to an n-ary tree.
     def decode(self, data: TreeNode) -> 'Node':
-        if not data: return
+        if not data:
+            return
         root = Node(data.val, [])
         q = collections.deque([(root, data)])
 
