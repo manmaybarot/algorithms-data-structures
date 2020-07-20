@@ -1,7 +1,7 @@
 # Sum of the nodes of a largest BST
 # All of children including parent shoud be BST
 
-from travalsal import TreeNode
+from traversal import TreeNode
 
 
 def largestBSTSubtree(self, root: TreeNode) -> int:

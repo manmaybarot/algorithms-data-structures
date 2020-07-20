@@ -8,7 +8,13 @@ class TreeNode:
         self.right = None
 
 
-class RecursionTravalsal:
+class Node:
+    def __init__(self, val=None, children=None):
+        self.val = val
+        self.children = children
+
+
+class Recursiontraversal:
     # a + b
     def inorder(self, node):
         if not node:
@@ -75,7 +81,7 @@ class IterativeWithStack:
         return ans[::-1]
 
 
-class MorrisTravalsal:
+class Morristraversal:
     def inorder(self, root: TreeNode) -> List[int]:
         current = root
         ans = []

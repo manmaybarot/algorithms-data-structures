@@ -1,4 +1,4 @@
-from travalsal import TreeNode, MorrisTravalsal
+from traversal import TreeNode, Morristraversal
 
 
 def construct_expression_tree(postfix):
@@ -20,4 +20,4 @@ def construct_expression_tree(postfix):
 if __name__ == '__main__':
     postfix = 'KL+MN*-OP^W*U/V/T*+Q+'
     root = construct_expression_tree(postfix)
-    print(MorrisTravalsal.postorder(root))
+    print(Morristraversal.postorder(root))
