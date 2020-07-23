@@ -27,7 +27,7 @@ class Codec:
 
         return bt_root
 
-        # Decodes your binary tree to an n-ary tree.
+    # Decodes your binary tree to an n-ary tree.
     def decode(self, data: TreeNode) -> 'Node':
         if not data:
             return
