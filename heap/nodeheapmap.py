@@ -14,7 +14,7 @@ class NodeHeapMap:
         self.nodeheap_map = collections.defaultdict()
 
     def heapify(self, A):
-        for i in range(len(A)//2, -1, -1): # due to nature of child indeces
+        for i in range(len(A) // 2, -1, -1):  # due to nature of child indeces
             self._bubble_down(A, i)
 
     def heap_push(self, A, node):
@@ -23,12 +23,12 @@ class NodeHeapMap:
         i = len(A) - 1
         self.nodeheap_map[node] = i
 
-        parent_of_i = (i-1)//2
+        parent_of_i = (i - 1) // 2
         while parent_of_i >= 0:
             if A[parent_of_i].val > A[i].val:
                 self._swap(A, parent_of_i, i)
                 i = parent_of_i
-                parent_of_i = (i-1)//2
+                parent_of_i = (i - 1) // 2
             else:
                 break
 
@@ -45,12 +45,12 @@ class NodeHeapMap:
         i = 0 if not node else self.nodeheap_map[node]
         removed = A[i]
 
-        self._swap(A, i, len(A)-1)
+        self._swap(A, i, len(A) - 1)
 
         A.pop()
         self.nodeheap_map.pop(removed)
 
-        if len(A)>1:
+        if len(A) > 1:
             self._bubble_down(A, i)
 
         return removed
@@ -67,8 +67,8 @@ class NodeHeapMap:
 
     def _bubble_down(self, A, i):
         """heapmap bubble down operatuon."""
-        left = (2*i) + 1
-        right = (2*i) + 2
+        left = (2 * i) + 1
+        right = (2 * i) + 2
 
         if left < len(A):
             if right >= len(A):
@@ -105,7 +105,7 @@ class Solution:
         pre = 0
         for x, h_node in height:
             if h_node.val < 0:
-                nodeheapmap.heap_push(q, h_node) # it is already minimum
+                nodeheapmap.heap_push(q, h_node)  # it is already minimum
             else:
                 nodeheapmap.heap_pop(q, paired_item[h_node])
 

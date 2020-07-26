@@ -22,7 +22,7 @@ class SolutionWithoutHeapMap:
         pre = 0
         for x, h_node in height:
             if h_node.val < 0:
-                nodeheapmap.heap_push(q, h_node) # it is already minimum
+                nodeheapmap.heap_push(q, h_node)  # it is already minimum
             else:
                 nodeheapmap.heap_pop(q, paired_item[h_node])
 
