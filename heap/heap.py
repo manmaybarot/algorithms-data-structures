@@ -14,7 +14,7 @@ class Heap():
 
         if left >= offset and right >= offset:
             return
-        elif right >= offset:
+        elif right > offset:
             if A[i] > A[left]:
                 A[i], A[left] = A[left], A[i]
                 self.heapify(A, left, offset)

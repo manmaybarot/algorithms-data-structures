@@ -24,9 +24,9 @@ class Heap():
         left = (2 * i) + 1
         right = left + 1
 
-        if left >= len(A) and right >= len(A):
+        if left >= len(A):
             return
-        elif right >= len(A):
+        elif right > len(A):
             if A[left] < A[i]:
                 self.swap(A, A[left], A[i])
                 self.heapify(A, left)
