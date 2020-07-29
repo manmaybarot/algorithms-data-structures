@@ -63,12 +63,8 @@ class MyCalendarThree:
         self.update(range_start, range_end, 2 * i + 2, mid + 1, tree_end)
 
         self.tree[i] = max(
-            self.tree.get(
-                2 * i + 1,
-                0),
-            self.tree.get(
-                2 * i + 2,
-                0))
+            self.tree.get(2 * i + 1, 0), self.tree.get(2 * i + 2, 0)
+        )
 
 
 # Your MyCalendarThree object will be instantiated and called as such:
