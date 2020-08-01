@@ -3,8 +3,8 @@
 
 class Heap():
     def buildheap(self, A):
-        for i in range((len(A)//2)-1, -1, -1):
-            self.heapify(A,i)
+        for i in range((len(A) // 2) - 1, -1, -1):
+            self.heapify(A, i)
 
     def heapify(self, A, i, sort_offset=None):
         # sort_offset for heapsort inplace
@@ -14,7 +14,7 @@ class Heap():
 
         if left >= offset and right >= offset:
             return
-        elif right>=offset:
+        elif right > offset:
             if A[i] > A[left]:
                 A[i], A[left] = A[left], A[i]
                 self.heapify(A, left, offset)
@@ -40,7 +40,7 @@ class Heap():
 
     def heappush(self, A, ele):
         A.append(ele)
-        i = len(A)-1
+        i = len(A) - 1
         parent = self.get_parent(i)
         while parent >= 0:
             if A[parent] > A[i]:
@@ -51,11 +51,11 @@ class Heap():
                 break
 
     def get_parent(self, i):
-        return i//2 if i%2 != 0 else (i//2)-1
+        return i // 2 if i % 2 != 0 else (i // 2) - 1
 
     def heapsort(self, A):
-        counter = len(A)-1
-        while counter>=0:
+        counter = len(A) - 1
+        while counter >= 0:
             new_root = A.pop(counter)
             if counter == 0:
                 A.append(new_root)
@@ -65,13 +65,13 @@ class Heap():
             A[0] = new_root
             A.append(min_ele)
             self.heapify(A, 0, counter)
-            counter-=1
-            
+            counter -= 1
+
 
 if __name__ == '__main__':
     heap = Heap()
 
-    l1 = [1,4,6,7,3,2,-556,3,2,9,2]
+    l1 = [1, 4, 6, 7, 3, 2, -556, 3, 2, 9, 2]
     heap.buildheap(l1)
 
     heap.heappush(l1, -1)

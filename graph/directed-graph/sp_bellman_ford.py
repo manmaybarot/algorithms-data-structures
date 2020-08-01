@@ -18,7 +18,7 @@ def get_sssp(G, E, source):
             d[v] = d[u] + w
             parent[v] = u
 
-    for i in range(len(d)-2):
+    for i in range(len(d) - 2):
         for u, v in G:
             relaxation(u, v, weight[(u, v)])
 
@@ -28,10 +28,11 @@ def get_sssp(G, E, source):
 
     return parent
 
-if __name__=='__main__':
+
+if __name__ == '__main__':
     G = [
         ('A', 'D'), ('A', 'C'), ('D', 'C'), ('C', 'B'), ('B', 'A')
-    ] 
+    ]
     E = [1, 2, 1, 2, 3]
 
     print(get_sssp(G, E, source='A'))

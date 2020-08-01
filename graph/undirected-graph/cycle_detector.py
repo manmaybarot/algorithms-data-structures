@@ -1,5 +1,6 @@
 import collections
 
+
 def detect_cycle(pairs):
     graph = collections.defaultdict(list)
     for s, d in pairs:
@@ -18,7 +19,7 @@ def detect_cycle(pairs):
         for neighbour in graph[vertex]:
             if is_cycle:
                 return
-            if neighbour in visited and parent[vertex] != neighbour:    
+            if neighbour in visited and parent[vertex] != neighbour:
                 is_cycle = True
                 while vertex != neighbour:
                     cycle.append(vertex)
@@ -41,6 +42,7 @@ def detect_cycle(pairs):
 
     return is_cycle, cycle
 
-if __name__=='__main__':
-    pairs = [('A', 'B'), ('B', 'C'), ('C', 'A'),('D', 'B')]
+
+if __name__ == '__main__':
+    pairs = [('A', 'B'), ('B', 'C'), ('C', 'A'), ('D', 'B')]
     print(detect_cycle(pairs))

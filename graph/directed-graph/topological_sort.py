@@ -1,4 +1,5 @@
 # Topological Sort
+from collections import deque
 
 
 def topological_sort(prerequisites):
@@ -11,7 +12,7 @@ def topological_sort(prerequisites):
         if pre not in graph:
             graph[pre] = []
 
-    topology = []
+    topology = deque([])
     visited = set()
 
     def dfs(vertex):
@@ -19,7 +20,7 @@ def topological_sort(prerequisites):
             if nei not in visited:
                 visited.add(nei)
                 dfs(nei)
-        topology.insert(0, vertex)
+        topology.appendleft(vertex)
 
     for vertex in graph:
         if vertex not in visited:
@@ -28,8 +29,9 @@ def topological_sort(prerequisites):
 
     return topology
 
-if __name__=='__main__':
-    prerequisites = [(1, 2), (1, 3), (2, 3),(2, 4), (4, 3), (4, 5), (3, 5)]
+
+if __name__ == '__main__':
+    prerequisites = [(1, 2), (1, 3), (2, 3), (2, 4), (4, 3), (4, 5), (3, 5)]
     print(topological_sort(prerequisites))
 
 # O(V+E)
