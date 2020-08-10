@@ -14,15 +14,15 @@ class Node:
         self.children = children
 
 
-class Recursiontraversal:
+class RecursiveTraversal:
     # a + b
     def inorder(self, node):
         if not node:
             return
 
-        inorder(node.left)
+        self.inorder(node.left)
         print(node.val)  # visiting node
-        inorder(node.right)
+        self.inorder(node.right)
 
     # + a b
     def preorder(self, node):
@@ -30,16 +30,16 @@ class Recursiontraversal:
             return
 
         print(node.val)  # visiting node
-        preorder(node.left)
-        preorder(node.right)
+        self.preorder(node.left)
+        self.preorder(node.right)
 
     # a b +
     def postorder(self, node):
         if not node:
             return
 
-        postorder(node.left)
-        postorder(node.right)
+        self.postorder(node.left)
+        self.postorder(node.right)
         print(node.val)
 
 
