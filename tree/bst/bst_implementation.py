@@ -29,16 +29,27 @@ class BST:
             node.right = self._insert(val, node.right)
         return node
 
-    def sorted_print(self):
-        self._inorder(self.root)
-
-    def _inorder(self, node):
-        if not node:
+    def delete(self, key, root):
+        if root is None:
             return
-        self._inorder(node.left)
-        print(node.val)  # visiting node
-        self._inorder(node.right)
+        elif key < root.val:
+            root.left = self.delete(key, root.left)
+        elif key > root.val:
+            root.right = self.delete(key, root.right)
+        else:
+            if root.left is None:
+                return root.right
+            elif root.right is None:
+                return root.left
+            else:
+                inorder_successor = root.right
+                while inorder_successor.left:
+                    inorder_successor = inorder_successor.left
 
+                root.val = inorder_successor.val
+                root.right = self.delete(inorder_successor.val, root.right)
+
+        return root
 
 if __name__ == '__main__':
     bst = BST()
@@ -46,5 +57,9 @@ if __name__ == '__main__':
     values = [3, 8, 5, 3, 7, 7, 8, 1, 5]
     for val in values:
         bst.insert(val)
+
+    print(Morristraversal().inorder(bst.root))
+
+    bst.delete(7, bst.root)
 
     print(Morristraversal().inorder(bst.root))
