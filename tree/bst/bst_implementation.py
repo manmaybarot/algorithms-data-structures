@@ -1,5 +1,7 @@
 # Binary Search Tree Implementation
 
+from tree.traversal import Morristraversal
+
 
 class Node:
     def __init__(self, val):
@@ -45,4 +47,4 @@ if __name__ == '__main__':
     for val in values:
         bst.insert(val)
 
-    bst.sorted_print()
+    print(Morristraversal().inorder(bst.root))

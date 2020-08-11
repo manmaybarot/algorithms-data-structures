@@ -92,11 +92,15 @@ class Morristraversal:
             else:
                 predecesor = current.left
                 next_current = current.left
-                while predecesor.right:
+                while predecesor.right and predecesor.right != current:
                     predecesor = predecesor.right
-                predecesor.right = current
-                current.left = None
-                current = next_current
+                if predecesor.right == current:
+                    predecesor.right = None
+                    ans.append(current.val)
+                    current = current.right
+                else:
+                    predecesor.right = current
+                    current = next_current
         return ans
 
     def preorder(self, root: TreeNode) -> List[int]:
