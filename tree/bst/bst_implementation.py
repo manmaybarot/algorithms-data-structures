@@ -26,7 +26,7 @@ class BST:
             node = Node(val)
             node.p = p
             return node
-        elif val <= node.val:
+        elif val < node.val:
             node.left = self._insert(val, node.left, node)
         else:
             node.right = self._insert(val, node.right, node)
