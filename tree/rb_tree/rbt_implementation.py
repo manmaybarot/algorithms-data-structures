@@ -102,6 +102,36 @@ class RedBlackTree:
             print(q.val)
             self.rb_inorder(q.right)
 
+    def tree_minimum(self, r):
+        while r.left != self.nil:
+            r = r.left
+        return r
+
+    def rb_delete(self, z):
+        y = z
+        y_original_color = y.color
+        if z.left == self.nil:
+            x = z.right
+            self._rb_transplant(z, z.right)
+        elif z.right == self.nil:
+            x = z.left
+            self._rb_transplant(z, z.left)
+        else:
+            y = self.tree_minimum(z.right)
+            y_original_color = y.color
+            x = y.right
+            if y.p == z:
+                x.p = y
+            else:
+                self._rb_transplant(y, y.right)
+                y.right = z.right
+                y.right.p = y
+            self._rb_transplant(z, y)
+            y.left = z.left
+            y.left.p = y
+        if y_original_color == 'black':
+            self._rb_delete_fixup(x)
+
     def _rb_transplant(self, u, v):
         if u.p == self.nil:
             self.root = v
@@ -110,6 +140,10 @@ class RedBlackTree:
         else:
             u.p.right = v
         v.p = u.p
+
+    def _rb_delete_fixup(self, x):
+        pass
+
 
 if __name__ == '__main__':
     rb_tree = RedBlackTree()
