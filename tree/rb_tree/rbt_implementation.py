@@ -129,6 +129,7 @@ class RedBlackTree:
             self._rb_transplant(z, y)
             y.left = z.left
             y.left.p = y
+            y.color = z.color
         if y_original_color == 'black':
             self._rb_delete_fixup(x)
 
@@ -142,7 +143,48 @@ class RedBlackTree:
         v.p = u.p
 
     def _rb_delete_fixup(self, x):
-        pass
+        while x != self.root and x.color == 'black':
+            if x == x.p.left:
+                w = x.p.right
+                if w.color == 'red':
+                    w.color = 'black'
+                    w.p.color = 'red'
+                    self._left_rotate(w.p)
+                    w = x.p.right
+                if w.left.color == 'black' and w.right.color == 'black':
+                    w.color = 'red'
+                    x = x.p
+                else:
+                    if  w.right.color == 'black':
+                        w.left.color = 'black'
+                        w.color = 'red'
+                        self._right_rotate(w)
+                        w = x.p.right
+                    w.color = w.p.color
+                    w.p.color = 'black'
+                    w.right.color = 'black'
+                    self._left_rotate(w.p)
+            else:
+                w = x.p.left
+                if w.color == 'red':
+                    w.color = 'black'
+                    w.p.color = 'red'
+                    self._right_rotate(w.p)
+                    w = x.p.left
+                if w.left.color == 'black' and w.right.color == 'black':
+                    w.color = 'red'
+                    x = x.p
+                else:
+                    if  w.left.color == 'black':
+                        w.right.color = 'black'
+                        w.color = 'red'
+                        self._left_rotate(w)
+                        w = x.p.left
+                    w.color = w.p.color
+                    w.p.color = 'black'
+                    w.left.color = 'black'
+                    self._right_rotate(w.p)
+        x.color = 'black'
 
 
 if __name__ == '__main__':
@@ -151,4 +193,5 @@ if __name__ == '__main__':
     values = [3, 8, 5, 3, 7, 7, 8, 1, 5]
     for val in values:
         rb_tree.rb_insert(Node(val))
+    rb_tree.rb_delete(rb_tree.root.right)
     print(rb_tree.rb_inorder(rb_tree.root))
