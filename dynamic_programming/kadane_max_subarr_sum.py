@@ -5,7 +5,7 @@
 # and return its sum.
 
 
-def maxSubArray(self, nums: List[int]) -> int:
+def maxSubArray(nums):
     max_sum = nums[0]
     current_sum = nums[0]
 
@@ -18,3 +18,17 @@ def maxSubArray(self, nums: List[int]) -> int:
             max_sum = max(current_sum, max_sum)
 
     return max_sum
+
+
+if __name__ == '__main__':
+    A = [
+        100, 113, 110, 85, 105, 102, 86,
+        63, 81, 101, 94, 106, 101, 79, 94,
+        90, 97
+    ]
+
+    B = [0]
+    for i in range(1, len(A)):
+        B.append(A[i] - A[i-1])
+
+    print(maxSubArray(B))
