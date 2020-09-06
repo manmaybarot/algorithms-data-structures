@@ -20,9 +20,9 @@ class SegmentTree:
         return self.segment_tree[i]
 
     def get_range_sum(self, i, j):
-        return self.range_sum(i, j, 0, len(self.arr) - 1, 0)
+        return self._range_sum(i, j, 0, len(self.arr) - 1, 0)
 
-    def range_sum(self, q_start, q_end, seg_start, seg_end, seg_i):
+    def _range_sum(self, q_start, q_end, seg_start, seg_end, seg_i):
         if seg_end < q_start or seg_start > q_end:
             return 0
         elif seg_start >= q_start and seg_end <= q_end:
@@ -30,8 +30,8 @@ class SegmentTree:
         else:
             mid = (seg_start + seg_end) // 2
             return (
-                self.range_sum(q_start, q_end, seg_start, mid, 2 * seg_i + 1) +
-                self.range_sum(q_start, q_end, mid + 1, seg_end, 2 * seg_i + 2)
+                self._range_sum(q_start, q_end, seg_start, mid, 2 * seg_i + 1) +
+                self._range_sum(q_start, q_end, mid + 1, seg_end, 2 * seg_i + 2)
             )
 
     def update(self, i, val):
