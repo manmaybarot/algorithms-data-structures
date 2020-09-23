@@ -17,11 +17,6 @@ def get_max_ribbon_pieces(n: int, a: int, b: int, c: int) -> int:
         if n in memo: return memo[n]
         elif n <= 0: return 0
 
-        if n - a not in memo:
-            memo[n - a] = get_max(n - a)
-        if n - b not in memo:
-            memo[n - b] = get_max(n - b)
-        if n - c not in memo:
-            memo[n - c] = get_max(n - c)
+        memo[n] = 1 + max(get_max(n - a), get_max(n - b), get_max(n - c))
 
-        return 1 + max(memo[n - a], memo[n - b], memo[n - c])
+        return memo[n]
