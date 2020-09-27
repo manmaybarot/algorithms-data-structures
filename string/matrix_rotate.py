@@ -1,40 +1,40 @@
-# Rotate matrix to 90 degree inplace
+# Rotate mat to 90 degree inplace
 
 # Ref: https://leetcode.com/problems/rotate-image/solution/
 
 from typing import List
 
+class Solution:
+    def rotate90(self, mat: List[List[int]]) -> None:
+            """
+            Do not return anything, modify mat in-place instead.
+            """
+            n = len(mat)
 
-def rotate90(self, matrix: List[List[int]]) -> None:
+            for row in range(n):
+                for col in range(row, n):
+                    mat[row][col], mat[col][row] = mat[col][row], mat[row][col]
+
+            for row in mat:
+                row.reverse()
+
+
+    # Follow up:
+    # Rotate to 270
+
+
+    def rotate270(self, mat: List[List[int]]) -> None:
         """
-        Do not return anything, modify matrix in-place instead.
+        Do not return anything, modify mat in-place instead.
         """
-        n = len(matrix)
+        n = len(mat)
 
         for row in range(n):
             for col in range(row, n):
-                matrix[row][col], matrix[col][row] = matrix[col][row], matrix[row][col]
+                mat[row][col], mat[col][row] = mat[col][row], mat[row][col]
 
-        for row in matrix:
-            row.reverse()
+        i = 0
+        j = n - 1
 
-
-# Follow up:
-# Rotate to 270
-
-
-def rotate270(self, matrix: List[List[int]]) -> None:
-    """
-    Do not return anything, modify matrix in-place instead.
-    """
-    n = len(matrix)
-
-    for row in range(n):
-        for col in range(row, n):
-            matrix[row][col], matrix[col][row] = matrix[col][row], matrix[row][col]
-
-    i = 0
-    j = n - 1
-
-    while i < j:
-        matrix[i], matrix[j] = matrix[j], matrix[i]
+        while i < j:
+            mat[i], mat[j] = mat[j], mat[i]

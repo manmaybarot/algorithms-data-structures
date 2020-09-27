@@ -15,7 +15,8 @@
 
 # Ref: https://leetcode.com/problems/integer-to-roman/
 
-def intToRoman(self, num: int) -> str:
+
+def intToRoman(num: int) -> str:
         table = {
             '1000': ['', 'M', 'MM', 'MMM'],
             '100': ['', 'C', 'CC', 'CCC', 'CD', 'D', 'DC', 'DCC', 'DCCC', 'CM'],

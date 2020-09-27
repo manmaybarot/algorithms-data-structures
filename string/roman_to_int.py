@@ -2,7 +2,8 @@
 
 # Ref: https://leetcode.com/problems/roman-to-integer/
 
-def romanToInt(self, s: str) -> int:
+
+def romanToInt(s: str) -> int:
     table = {
         'I': 1,
         'V': 5,
