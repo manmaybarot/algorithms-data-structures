@@ -1,6 +1,7 @@
 # Ref: https://leetcode.com/problems/coin-change/
 
 from math import inf
+from typing import List
 
 
 class Solution:
@@ -36,3 +37,16 @@ class Solution:
                 )
 
         return dp[-1] if dp[-1] != inf else -1
+
+
+
+def test_coin_change():
+    coins = [[1,2,5], [2], [1], [3,7,405,436]]
+    amounts = [11, 3, 0, 8839]
+    expected = [3, -1, 0, 25]
+    result = []
+
+    for coins_, amount in zip(coins, amounts):
+        result.append(Solution().coinChange_dp(coins_, amount))
+
+    assert result == expected
