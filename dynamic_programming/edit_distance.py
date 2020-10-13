@@ -16,7 +16,11 @@ class Solution:
             if word1[l1] == word2[l2]:
                 memo[(l1, l2)] = levenshtien(l1-1, l2-1)
             else:
-                memo[(l1, l2)] = 1 + min(levenshtien(l1, l2-1), levenshtien(l1-1, l2), levenshtien(l1-1, l2-1))
+                memo[(l1, l2)] = 1 + min(
+                    levenshtien(l1, l2-1),
+                    levenshtien(l1-1, l2),
+                    levenshtien(l1-1, l2-1)
+                )
 
             return memo[(l1, l2)]
 
