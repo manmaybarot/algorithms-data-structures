@@ -17,8 +17,9 @@ class Heap():
 
     def swap(self, A, x, y):
         self.heap_map[y], self.heap_map[x] = self.heap_map[x], self.heap_map[y]
-        A[self.heap_map[x]], A[self.heap_map[y]
-                               ] = A[self.heap_map[y]], A[self.heap_map[x]]
+        A[self.heap_map[x]], A[
+            self.heap_map[y]
+        ] = A[self.heap_map[y]], A[self.heap_map[x]]
 
     def heapify(self, A, i):
         left = (2 * i) + 1
