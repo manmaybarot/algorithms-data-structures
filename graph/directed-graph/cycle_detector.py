@@ -20,19 +20,12 @@ def detect_cycle(pairs):
         alarm[s] = False
 
     def dfs(vertex):
-        # declaring nonlocal as
-        # this code may change the value of
-        # is_cycle var if cycle exists
         nonlocal is_cycle
 
         if is_cycle:
             return
         alarm[vertex] = True
         for nei in graph[vertex]:
-            if nei == vertex:
-                is_cycle = True
-                cycle.append(nei)
-                return
             if nei not in visited:
                 visited.add(nei)
                 dfs(nei)
@@ -41,6 +34,7 @@ def detect_cycle(pairs):
                 for active in alarm:
                     if alarm[active]:
                         cycle.append(active)
+                cycle.append(nei)
                 return
         alarm[vertex] = False
 

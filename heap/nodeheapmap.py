@@ -14,6 +14,7 @@ class NodeHeapMap:
         self.nodeheap_map = collections.defaultdict()
 
     def heapify(self, A):
+        """Heapify operation (Nlog(N))."""
         for i in range(len(A) // 2, -1, -1):  # due to nature of child indeces
             self._bubble_down(A, i)
 
@@ -33,12 +34,14 @@ class NodeHeapMap:
                 break
 
     def peek(self, A):
+        """Get top element."""
         if len(A) > 0:
             return A[0]
         else:
             raise IndexError('heapmap is empty!')
 
     def heap_pop(self, A, node=None):
+        """Remove and get top element."""
         if len(A) == 0:
             raise IndexError('heapmap is empty!')
 
@@ -56,7 +59,7 @@ class NodeHeapMap:
         return removed
 
     def _swap(self, A, i, j):
-        """heapmap swap of elements and indeces"""
+        """heapmap swap of elements and indeces."""
 
         (
             self.nodeheap_map[A[i]],
@@ -82,37 +85,3 @@ class NodeHeapMap:
                 elif A[right].val <= A[left].val and A[right].val < A[i].val:
                     self._swap(A, i, right)
                     self._bubble_down(A, right)
-
-
-class Solution:
-    def getSkyline(self, buildings: List[List[int]]) -> List[List[int]]:
-        result = []
-        height = []
-        paired_item = {}
-        for left, right, h in buildings:
-            neg_node = Node(-h)
-            pos_node = Node(h)
-            height.append([left, neg_node])
-            height.append([right, pos_node])
-            paired_item[neg_node] = pos_node
-            paired_item[pos_node] = neg_node
-
-        height = sorted(height, key=lambda x: (x[0], x[1].val))
-        nodeheapmap = NodeHeapMap()
-        q = []
-        nodeheapmap.heap_push(q, Node(0))
-
-        pre = 0
-        for x, h_node in height:
-            if h_node.val < 0:
-                nodeheapmap.heap_push(q, h_node)  # it is already minimum
-            else:
-                nodeheapmap.heap_pop(q, paired_item[h_node])
-
-            curr = nodeheapmap.peek(q).val
-
-            if pre != curr:
-                result.append([x, abs(curr)])
-                pre = curr
-
-        return result

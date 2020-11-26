@@ -1,4 +1,4 @@
-# # Shortest Path Algorithm: Dijkstra
+# Shortest Path Algorithm: Dijkstra
 
 import collections
 import heapq

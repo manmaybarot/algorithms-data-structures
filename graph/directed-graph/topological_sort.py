@@ -12,7 +12,7 @@ def topological_sort(prerequisites):
         if pre not in graph:
             graph[pre] = []
 
-    topology = deque([])
+    topology = deque()
     visited = set()
 
     def dfs(vertex):
