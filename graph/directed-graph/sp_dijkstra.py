@@ -50,3 +50,5 @@ if __name__ == '__main__':
     E = [1, 2, 1, 2, 3]
 
     print(get_sssp(G, E, source='A'))
+
+# O((V+E)log V)

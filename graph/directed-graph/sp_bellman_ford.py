@@ -18,7 +18,7 @@ def get_sssp(G, E, source):
             d[v] = d[u] + w
             parent[v] = u
 
-    for i in range(len(d) - 2):
+    for i in range(len(d) - 1):
         for u, v in G:
             relaxation(u, v, weight[(u, v)])
 

@@ -74,4 +74,4 @@ if __name__ == '__main__':
 
     print(krushkal_mst(G, E))
 
-# O(nlog *m)
+# O(m log* n)
