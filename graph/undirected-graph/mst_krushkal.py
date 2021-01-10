@@ -23,7 +23,7 @@ def find(x):
     return x.root
 
 
-def krushkal_mst(G, E):
+def krushkal_mst(G, W, r):
     mapping = {}
 
     def make_set(x):
@@ -35,11 +35,11 @@ def krushkal_mst(G, E):
         make_set(v)
 
     weight_dict = {}
-    for e, g in zip(E, G):
-        if e in weight_dict:
-            weight_dict[e].append(g)
+    for w, g in zip(W, G):
+        if w in weight_dict:
+            weight_dict[w].append(g)
         else:
-            weight_dict[e] = [g]
+            weight_dict[w] = [g]
 
     G_prime = []
     for e in sorted(weight_dict.keys()):
@@ -52,7 +52,16 @@ def krushkal_mst(G, E):
         v_parent = find(mapping[v])
         if u_parent != v_parent:
             union(u_parent, v_parent)
-            mst.append((u, v))
+            mst.append((v, u))
+
+    # w = {}
+    # for g, e in zip(G, W):
+    #     w[g] = e
+    #     w[g[::-1]] = e
+    # total_weight = 0
+    # for j in mst:
+    #     total_weight += w[j]
+    # print(total_weight)
 
     return mst
 
@@ -61,17 +70,28 @@ if __name__ == '__main__':
     G = [
         (1, 3), (1, 2), (2, 4), (7, 8), (3, 4), (2, 5), (5, 7), (5, 6), (6, 8)
     ]
-    E = [7, 1, 5, 4, 2, 6, 9, 3, 8]
+    W = [7, 1, 5, 4, 2, 6, 9, 3, 8]
+    r = 1
 
     # G = [
     #     (1, 3), (1, 2), (2, 4), (7, 8), (3, 4)
     # ]
-    # E = [7, 1, 5, 4, 2]
+    # W = [7, 1, 5, 4, 2]
+    # r = 4
+
     # G = [
     #     (1, 3), (1, 2), (2, 3)
     # ]
-    # E = [7, 1, 5]
+    # W = [7, 1, 5]
+    # r = 3
 
-    print(krushkal_mst(G, E))
+    print(krushkal_mst(G, W, r))
 
-# O(m log* n)
+# Time Complexity: O([E log* V] + [E log E])
+# (** where usually value of log* V does not exceed
+# more then 5 (4 in case of α(n))
+
+# Hence, time complexity ==> O(E log E)
+
+# Space Complexity: O(|E| + |V|)
+# (E for sorting edges, V for maintaining roots in Union-Find)
