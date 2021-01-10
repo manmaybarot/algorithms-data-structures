@@ -49,7 +49,7 @@ if __name__ == '__main__':
     ]
     E = [1, 2, 1, 2, 3]
 
-    print(get_sssp(G, E, source='A'))
+    print(dijkstra(G, E, source='A'))
 
 # Time: O((V+E)log V)
 # Space: O(|v| + |E|)

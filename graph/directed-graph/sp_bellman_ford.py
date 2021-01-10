@@ -35,6 +35,8 @@ if __name__ == '__main__':
     ]
     E = [1, 2, 1, 2, 3]
 
-    print(get_sssp(G, E, source='A'))
+    print(bellman_ford(G, E, source='A'))
 
-# O(VE)
+# Time: O(|V| * |E|)
+# Space: O(|v| + |E|)
+# (E >= V - 1) ==> Space: O(|E|)
