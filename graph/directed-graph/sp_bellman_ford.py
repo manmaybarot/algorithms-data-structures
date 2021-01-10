@@ -39,4 +39,3 @@ if __name__ == '__main__':
 
 # Time: O(|V| * |E|)
 # Space: O(|V| + |E|)
-# (E >= V - 1) ==> Space: O(|E|)

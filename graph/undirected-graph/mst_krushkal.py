@@ -95,4 +95,3 @@ if __name__ == '__main__':
 
 # Space: O(|E| + |V|)
 # (E for sorting edges, V for maintaining roots in Union-Find)
-# (E >= V - 1) ==> Space: O(|E|)
