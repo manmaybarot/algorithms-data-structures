@@ -153,7 +153,7 @@ if __name__ == '__main__':
     print(get_mst(G, W, r))
 
 
-# pop_min operatin takes log V which runs for V nodes
+# pop_min operation takes log V which runs for V nodes
 # inner for loop runs 2 * E time and each push/pop operation takes log V
 # O((|V| + |E|)log V)
 # E >= V - 1
