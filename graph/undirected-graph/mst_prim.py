@@ -156,7 +156,5 @@ if __name__ == '__main__':
 # pop_min operation takes log V which runs for V nodes
 # inner for loop runs 2 * E time and each push/pop operation takes log V
 # O((|V| + |E|)log V)
-# E >= V - 1
-# Time: O(E log V)
 
 # Space: O(|V| + |E|)
