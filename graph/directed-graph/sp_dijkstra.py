@@ -51,6 +51,6 @@ if __name__ == '__main__':
 
     print(dijkstra(G, E, source='A'))
 
-# Time: O((V+E)log V)
+# Time: O((|V| + |E|)log V)
 # Space: O(|V| + |E|)
 # (E >= V - 1) ==> Space: O(|E|)
