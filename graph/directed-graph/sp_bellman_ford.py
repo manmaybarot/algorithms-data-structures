@@ -38,5 +38,5 @@ if __name__ == '__main__':
     print(bellman_ford(G, E, source='A'))
 
 # Time: O(|V| * |E|)
-# Space: O(|v| + |E|)
+# Space: O(|V| + |E|)
 # (E >= V - 1) ==> Space: O(|E|)

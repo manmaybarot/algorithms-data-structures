@@ -159,5 +159,5 @@ if __name__ == '__main__':
 # E >= V - 1
 # Time: O(E log V)
 
-# Space: O(|v| + |E|)
+# Space: O(|V| + |E|)
 # (E >= V - 1) ==> Space: O(|E|)
