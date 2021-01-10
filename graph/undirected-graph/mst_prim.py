@@ -84,7 +84,7 @@ class MinHeap:
         self.edge_map[Q[j][1]] = self.edge_map[Q[j][1]], self.edge_map[Q[i][1]]
 
 
-def get_mst(G, W, r):
+def prim_mst(G, W, r):
     processed = set()
     processed.add(r)
 
@@ -150,7 +150,7 @@ if __name__ == '__main__':
     # W = [7, 1, 5]
     # r = 3
 
-    print(get_mst(G, W, r))
+    print(prim_mst(G, W, r))
 
 
 # pop_min operation takes log V which runs for V nodes
