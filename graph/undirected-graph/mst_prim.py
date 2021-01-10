@@ -157,6 +157,7 @@ if __name__ == '__main__':
 # inner for loop runs 2 * E time and each push/pop operation takes log V
 # O((V+E)log V)
 # E >= V - 1
-# Time Complexity: O(E log V)
+# Time: O(E log V)
 
-# Space Complexity: O(|E} + |V|)
+# Space: O(|v| + |E|)
+# (E >= V - 1) ==> Space: O(|E|)

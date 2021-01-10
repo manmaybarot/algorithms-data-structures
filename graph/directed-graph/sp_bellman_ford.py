@@ -1,7 +1,7 @@
 # Shortest Path Algorithm: Bellman Ford
 
 
-def get_sssp(G, E, source):
+def bellman_ford(G, E, source):
     d = {}
     weight = {}
     for u, v in G:

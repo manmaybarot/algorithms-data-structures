@@ -91,7 +91,8 @@ if __name__ == '__main__':
 # (** where usually value of log* V does not exceed
 # more then 5 (4 in case of α(n))
 
-# Hence, time complexity ==> O(E log E)
+# Hence, Time: O(E log E)
 
-# Space Complexity: O(|E| + |V|)
+# Space: O(|E| + |V|)
 # (E for sorting edges, V for maintaining roots in Union-Find)
+# (E >= V - 1) ==> Space: O(|E|)

@@ -4,7 +4,7 @@ import collections
 import heapq
 
 
-def get_sssp(G, E, source):
+def dijkstra(G, E, source):
     d = {}
     weight = {}
     for u, v in G:
@@ -51,4 +51,6 @@ if __name__ == '__main__':
 
     print(get_sssp(G, E, source='A'))
 
-# O((V+E)log V)
+# Time: O((V+E)log V)
+# Space: O(|v| + |E|)
+# (E >= V - 1) ==> Space: O(|E|)
