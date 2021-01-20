@@ -6,33 +6,30 @@ from traversal import TreeNode
 
 
 def build_bt_from_inorder_preorder(inorder, preorder):
+    pre_idx = 0
     mapping = {}
-    preindex = 0
-    for i, j in enumerate(inorder):
-        mapping[j] = i
+    for idx, value in enumerate(inorder):
+        mapping[value] = idx
 
-    def build(start, end):
-        nonlocal preindex
-        if start > end:
-            return
+    def build(left, right):
+        nonlocal pre_idx
+        if left > right:
+            return None
 
-        root = TreeNode(preorder[preindex])
-        preindex += 1
+        root = TreeNode(preorder[pre_idx])
+        pre_idx += 1
 
-        if not root:
-            return
-
-        if start == end:
+        if left == right:
             return root
 
-        index = mapping[root.val]
+        in_idx = mapping[root.val]
 
-        root.left = build(start, index - 1)
-        root.right = build(index + 1, end)
+        root.left = build(left, in_idx - 1)
+        root.right = build(in_idx + 1, right)
 
         return root
 
-    return build(0, len(preorder) - 1)
+    return build(0, len(inorder) - 1)
 
 
 def build_bt_from_inorder_postorder(inorder, postorder):
@@ -47,19 +44,15 @@ def build_bt_from_inorder_postorder(inorder, postorder):
             return
 
         root = TreeNode(postorder[postindex])
-
         postindex -= 1
-
-        if not root:
-            return
 
         if start == end:
             return root
 
-        index = index_of[root.val]
+        post_idx = index_of[root.val]
 
-        root.right = build(index + 1, end)
-        root.left = build(start, index - 1)
+        root.right = build(post_idx + 1, end)
+        root.left = build(start, post_idx - 1)
 
         return root
 
