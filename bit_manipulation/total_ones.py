@@ -19,4 +19,4 @@ if __name__ == '__main__':
 
 # O(Number of bits in X)
 # Number of bits in X = log X
-# hence, O(log X) where X is number an actual number
+# hence, O(log X) where X is num
