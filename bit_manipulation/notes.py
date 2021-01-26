@@ -86,5 +86,10 @@ print('0 ^ 0 = ', bin(0 ^ 0))
 
 # X ^ X = 0 if X is not 0
 # X ^ 0 = X
+# X ^ Y = Y ^ X
+
+# Z = X ^ Y
+# Z ^ X = X ^ Y ^ X
+# Z ^ X = Y
 
 print('----------------')
