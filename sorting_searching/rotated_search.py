@@ -11,7 +11,6 @@ def search(self, nums: List[int], target: int) -> int:
     if n == 1:
         return 0 if nums[0] == target else -1
 
-
     left = 0
     right = len(nums) - 1
 
