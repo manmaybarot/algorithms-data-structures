@@ -6,23 +6,23 @@ def merge_sort(A, p, r):
         return A
     mid = (p + r)//2
 
-    A = merge_sort(A, p , mid)
-    A = merge_sort(A, mid+1, r)
-    A = merge(A, p, mid, r)
+    merge_sort(A, p , mid)
+    merge_sort(A, mid+1, r)
+    merge(A, p, mid, r)
 
     return A
 
 
-def merge(A, p, q, r):
-    left = A[p:q+1]
-    right = A[q+1:r+1]
+def merge(A, start, mid, end):
+    left = A[start:mid+1]
+    right = A[mid+1:end+1]
 
     left.append(float('inf'))
     right.append(float('inf'))
 
     left_i, right_i = 0, 0
 
-    for i in range(p, r+1):
+    for i in range(start, end+1):
         if left[left_i] <= right[right_i]:
             A[i] = left[left_i]
             left_i += 1
