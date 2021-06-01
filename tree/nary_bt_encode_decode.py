@@ -1,6 +1,6 @@
 #
-
-from traversal import TreeNode, Node
+import collections
+from tree.traversal import TreeNode, Node
 
 
 class Codec:
