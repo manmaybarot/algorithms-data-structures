@@ -12,7 +12,7 @@ class Heap():
         right = left + 1
         offset = sort_offset or len(A) - 1
 
-        if left >= offset and right >= offset:
+        if left > offset:
             return
 
         elif right > offset:
