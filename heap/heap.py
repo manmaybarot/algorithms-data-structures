@@ -10,19 +10,21 @@ class Heap():
         # sort_offset for heapsort inplace
         left = (2 * i) + 1
         right = left + 1
-        offset = sort_offset or len(A)
+        offset = sort_offset or len(A) - 1
 
         if left >= offset and right >= offset:
             return
+
         elif right > offset:
-            if A[i] > A[left]:
+            if left <= offset and A[i] > A[left]:
                 A[i], A[left] = A[left], A[i]
                 self.heapify(A, left, offset)
-        else:
+        elif left <= offset:
             if A[i] > A[left] and A[left] <= A[right]:
                 A[i], A[left] = A[left], A[i]
                 self.heapify(A, left, offset)
             elif A[i] > A[right] and A[right] <= A[left]:
+
                 A[i], A[right] = A[right], A[i]
                 self.heapify(A, right, offset)
 
